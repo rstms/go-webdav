@@ -82,9 +82,9 @@ func (c *Client) ResolveHref(p string) *url.URL {
 	if !strings.HasPrefix(p, "/") {
 		p = path.Join(c.endpoint.Path, p)
 	}
-	if !strings.HasSuffix(p, "/") {
-	    p = p + "/"
-	}
+	//if !strings.HasSuffix(p, "/") {
+	//   p = p + "/"
+	//}
 	return &url.URL{
 		Scheme: c.endpoint.Scheme,
 		User:   c.endpoint.User,
