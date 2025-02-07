@@ -54,6 +54,8 @@ func (c *Client) HasSupport(ctx context.Context) error {
 }
 
 func (c *Client) FindAddressBookHomeSet(ctx context.Context, principal string) (string, error) {
+	fmt.Printf("FindAddressBookHomeSet: ctx=%v principal=%v\n", ctx, principal)
+	fmt.Printf("addressBookHomeSetName%v\n", addressBookHomeSetName)
 	propfind := internal.NewPropNamePropFind(addressBookHomeSetName)
 	resp, err := c.ic.PropFindFlat(ctx, principal, propfind)
 	if err != nil {
