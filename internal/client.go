@@ -21,8 +21,7 @@ func DiscoverContextURL(ctx context.Context, service, domain string) (string, er
 	var resolver net.Resolver
 
 	// Only lookup TLS records, plaintext connections are insecure
-	fmt.Printf("DiscoverContextURL: lookup=%s\n", service)
-	_, addrs, err := resolver.LookupSRV(ctx, service, "tcp", domain)
+	_, addrs, err := resolver.LookupSRV(ctx, service+"s", "tcp", domain)
 	if dnsErr, ok := err.(*net.DNSError); ok {
 		if dnsErr.IsTemporary {
 			return "", err
